@@ -1,6 +1,6 @@
 ## Gravel Pit Client Application
 
-Welcome to the Gravel Pit Client Application project! This Windows Forms application provides functionalities for managing gravel pit orders and interacting with the Gravel Pit Server API. The project was developed using Visual Studio and is intended for managing orders in a user-friendly interface.
+Welcome to the Gravel Pit Client Application project! This Windows Forms application provides functionalities for managing gravel pit orders and interacting with the [Gravel Pit Server API](https://github.com/cztgmng/GravelpitAPI). The project was developed using Visual Studio and is intended for managing orders in a user-friendly interface.
 
 ## Table of Contents
 
