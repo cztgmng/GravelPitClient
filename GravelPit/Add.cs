@@ -71,7 +71,7 @@ namespace GravelPit
             btn.Click += Btn_Click;
             btn.Font = new Font(FontFamily.GenericMonospace, btn.Font.Size);
 
-            string type = comboBox2.Text.Replace(" ","_");
+            string type = comboBox2.Text;//.Replace(" ","_");
 
             int length = (int)Math.Round((double)(19 - type.Length) / 2, 0);
             string space = new(' ', length);
@@ -138,13 +138,17 @@ namespace GravelPit
                 {
                     string[] parts = ((Button)control).Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
+                    string date = parts[0]; 
+                    string amount = parts[parts.Length - 1];
+                    string type = string.Join(" ", parts, 1, parts.Length - 2);
+
                     NewOrder newOrder = new()
                     {
-                        id = Hash($"{parts[0]}{client}{parts[1]}{((Button)control).Tag}{new Random().Next()}"),
-                        date = DateTime.ParseExact(parts[0], "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                        id = Hash($"{date}{client}{type}{((Button)control).Tag}{new Random().Next()}"),
+                        date = DateTime.ParseExact(date, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture),
                         client = client,
-                        type = parts[1],
-                        amount = float.Parse(parts[2]),
+                        type = type,
+                        amount = float.Parse(amount),
                         settled = 0,
                         added_date = DateTime.Now
                     };
